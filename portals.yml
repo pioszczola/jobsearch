@@ -1,0 +1,166 @@
+# Lista portali z ofertami pracy, podzielona na grupy.
+# Każdy portal ma: name, url, search_url (z {query} jako placeholder), enabled.
+
+groups:
+
+  # === POLSKIE PORTALE IT ===
+  - name: "Polskie IT"
+    portals:
+      - name: "No Fluff Jobs"
+        url: "https://nofluffjobs.com/pl"
+        search_url: "https://nofluffjobs.com/pl/praca/{query}"
+        enabled: true
+
+      - name: "Just Join IT"
+        url: "https://justjoin.it"
+        search_url: "https://justjoin.it/job-offers/all-locations/all-categories?keyword={query}"
+        enabled: true
+
+      - name: "the:protocol"
+        url: "https://theprotocol.it"
+        search_url: "https://www.google.com/search?q=site:theprotocol.it+{query}"
+        enabled: true
+
+      - name: "Bulldogjob"
+        url: "https://bulldogjob.pl"
+        search_url: "https://bulldogjob.pl/jobs?search={query}"
+        enabled: true
+
+      - name: "Pracuj.pl"
+        url: "https://www.pracuj.pl"
+        search_url: "https://www.pracuj.pl/praca/{query}"
+        enabled: true
+
+      - name: "Indeed Polska"
+        url: "https://pl.indeed.com"
+        search_url: "https://pl.indeed.com/jobs?q={query}"
+        enabled: false
+
+      - name: "Glassdoor"
+        url: "https://www.glassdoor.com"
+        search_url: "https://www.google.com/search?q=site:glassdoor.com+{query}+Poland"
+        enabled: false
+
+  # === EUROPEJSKIE PLATFORMY ZDALNE ===
+  - name: "Europejskie zdalne"
+    portals:
+      - name: "LinkedIn"
+        url: "https://www.linkedin.com/jobs"
+        search_url: "https://www.google.com/search?q=site:linkedin.com/jobs+{query}"
+        enabled: true
+
+      - name: "Wellfound"
+        url: "https://wellfound.com"
+        search_url: "https://wellfound.com/jobs?role={query}"
+        enabled: true
+
+      - name: "EU Remote Jobs"
+        url: "https://euremotejobs.com"
+        search_url: "https://www.google.com/search?q=site:euremotejobs.com+{query}"
+        enabled: false
+
+      - name: "Remote in Europe"
+        url: "https://remoteineurope.eu"
+        search_url: "https://www.google.com/search?q=site:remoteineurope.eu+{query}"
+        enabled: false
+
+      - name: "Working Nomads"
+        url: "https://www.workingnomads.com"
+        search_url: "https://www.workingnomads.com/jobs?category=project-management&region=europe"
+        enabled: false
+
+      - name: "Remote Rocketship"
+        url: "https://remoterocketship.com"
+        search_url: "https://www.google.com/search?q=site:remoterocketship.com+{query}"
+        enabled: false
+
+      - name: "SimplyHired"
+        url: "https://www.simplyhired.com"
+        search_url: "https://www.simplyhired.com/search?q={query}&l=europe+remote"
+        enabled: false
+
+  # === PLATFORMY KONTRAKTOWE / FREELANCE ===
+  - name: "Kontraktowe / freelance"
+    portals:
+      - name: "Freelancermap"
+        url: "https://www.freelancermap.com"
+        search_url: "https://www.google.com/search?q=site:freelancermap.com+{query}"
+        enabled: false
+
+      - name: "Toptal"
+        url: "https://www.toptal.com"
+        search_url: "https://www.google.com/search?q=site:toptal.com+{query}"
+        enabled: false
+
+      - name: "Malt"
+        url: "https://www.malt.com"
+        search_url: "https://www.google.com/search?q=site:malt.com+{query}"
+        enabled: false
+
+      - name: "Upwork"
+        url: "https://www.upwork.com"
+        search_url: "https://www.upwork.com/nx/jobs/search/?q={query}"
+        enabled: false
+
+  # === POZOSTAŁE ===
+  - name: "Pozostałe"
+    portals:
+      - name: "Greenhouse"
+        url: "https://boards.greenhouse.io"
+        search_url: "https://www.google.com/search?q=site:boards.greenhouse.io+{query}"
+        enabled: true
+
+      - name: "Ashby"
+        url: "https://jobs.ashbyhq.com"
+        search_url: "https://www.google.com/search?q=site:jobs.ashbyhq.com+{query}"
+        enabled: true
+
+      - name: "Lever"
+        url: "https://jobs.lever.co"
+        search_url: "https://www.google.com/search?q=site:jobs.lever.co+{query}"
+        enabled: true
+
+      - name: "Workable"
+        url: "https://apply.workable.com"
+        search_url: "https://www.google.com/search?q=site:apply.workable.com+{query}"
+        enabled: true
+
+      - name: "Anthropic"
+        url: "https://www.anthropic.com/careers"
+        search_url: "https://www.anthropic.com/careers"
+        enabled: false
+
+      - name: "OpenAI"
+        url: "https://openai.com/careers"
+        search_url: "https://openai.com/careers"
+        enabled: false
+
+      - name: "ElevenLabs"
+        url: "https://jobs.ashbyhq.com/elevenlabs"
+        search_url: "https://jobs.ashbyhq.com/elevenlabs"
+        enabled: false
+
+      - name: "Mistral AI"
+        url: "https://jobs.lever.co/mistral"
+        search_url: "https://jobs.lever.co/mistral"
+        enabled: false
+
+      - name: "Vercel"
+        url: "https://vercel.com/careers"
+        search_url: "https://vercel.com/careers"
+        enabled: false
+
+      - name: "Retool"
+        url: "https://retool.com/careers"
+        search_url: "https://retool.com/careers"
+        enabled: false
+
+      - name: "n8n"
+        url: "https://n8n.io/careers"
+        search_url: "https://n8n.io/careers"
+        enabled: false
+
+      - name: "Factorial HR"
+        url: "https://factorialhr.com/jobs"
+        search_url: "https://factorialhr.com/jobs"
+        enabled: false

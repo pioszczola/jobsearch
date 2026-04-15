@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# CV (dane osobowe)
+# cv.md — odkomentuj jeśli chcesz pominąć CV w repo
+
+# System
+.DS_Store
+*.pem
+
+# Debug
+npm-debug.log*
