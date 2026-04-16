@@ -23,7 +23,7 @@ export default function JobList({ offers, onBack }: Props) {
   function copySelected() {
     const rows = offers
       .filter((o) => selected.has(o.id))
-      .map((o) => [o.title, o.portal, o.url])
+      .map((o) => [o.title, o.portal, o.company, o.url])
 
     const tsv = rows.map((r) => r.join('\t')).join('\n')
     const html = `<table><tbody>${rows
