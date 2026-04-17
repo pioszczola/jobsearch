@@ -21,6 +21,10 @@ export function loadPortalGroups(): PortalGroup[] {
   return data.groups
 }
 
+let _portalsCache: Portal[] | null = null
+
 export function loadPortals(): Portal[] {
-  return loadPortalGroups().flatMap((g) => g.portals)
+  if (_portalsCache) return _portalsCache
+  _portalsCache = loadPortalGroups().flatMap((g) => g.portals)
+  return _portalsCache
 }

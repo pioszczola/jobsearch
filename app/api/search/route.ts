@@ -42,8 +42,6 @@ export async function POST(req: NextRequest) {
 
   const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
-  const portalList = activePortals.map((p: Portal) => `- ${p.name} (${p.url})`).join('\n')
-
   const titles = criteria.title.split(';').map((t) => t.trim()).filter(Boolean)
   const titlesDisplay = titles.length > 1
     ? `Szukaj ofert pasujących do KTÓREGOKOLWIEK z poniższych stanowisk (traktuj je jako alternatywy, nie jako wymagania łączne):\n${titles.map((t, i) => `  ${i + 1}. ${t}`).join('\n')}`
@@ -53,6 +51,11 @@ export async function POST(req: NextRequest) {
   const locationsDisplay = locations.length > 1
     ? `Lokalizacja (oferta musi pasować do PRZYNAJMNIEJ JEDNEJ z poniższych lokalizacji, traktuj je jako alternatywy):\n${locations.map((l, i) => `  ${i + 1}. ${l}`).join('\n')}`
     : `Lokalizacja: ${criteria.location || 'dowolna'}`
+
+  const portalList = activePortals.map((p: Portal) => {
+    const searchUrl = p.search_url.replace('{query}', encodeURIComponent(titles[0]))
+    return `- ${p.name}: ${searchUrl}`
+  }).join('\n')
 
   const prompt = `Jesteś asystentem rekrutacyjnym. Przeszukaj następujące portale z ofertami pracy w poszukiwaniu ofert pasujących do podanych kryteriów.
 
@@ -69,7 +72,7 @@ PORTALE DO PRZESZUKANIA:
 ${portalList}
 
 INSTRUKCJE:
-1. Użyj narzędzia web_search aby wyszukać oferty na każdym z portali — wyszukuj każde stanowisko osobno
+1. Dla każdego portalu WEJDŹ BEZPOŚREDNIO na podany URL wyszukiwania — nie szukaj formularza wyszukiwania, tylko odczytaj wyniki z gotowego linku. Jeśli stanowisk jest kilka, powtórz dla każdego. Wykonaj maksymalnie 4 web_searche na portal — jeśli po 4 próbach nie znajdziesz wyników, przejdź do następnego portalu.
 2. Dla każdej znalezionej oferty zbierz: tytuł, firmę, lokalizację, tryb pracy, widełki wynagrodzenia, typ umowy, wielkość firmy, link, krótki opis (2-3 zdania), portal
 3. Jeśli dane pole nie jest dostępne w ogłoszeniu, wpisz null
 4. Zwróć wyniki WYŁĄCZNIE jako tablicę JSON (bez żadnego dodatkowego tekstu), format:
